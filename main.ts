@@ -4,13 +4,18 @@ const Markup = require("telegraf/markup");
 const axios =  require('axios');
 
 // Telegram bot token
-const bot = new Telegraf('BOT_TOKEN');
+const BOT_TOKEN = process.env.BOT_TOKEN || "TELEGRAM_BOT_TOKEN"; 
 // Tensor API key
-const API_KEY = "TENSOR_API_KEY";
+const API_KEY = process.env.API_KEY || "TENSOR_API_KEY";
 // Marketplace base URL with "/" at the end, so concatenated with mint address it will redirect to the single NFT buy page
-const BASE_URL = "https://www.tensor.trade/item/";
+const BASE_URL = process.env.BASE_URL || "https://www.tensor.trade/item/";
 // Amount of listings to fetch
-const NUM_OF_LISTINGS = 10;
+const NUM_OF_LISTINGS = process.env.NUM_OF_LISTINGS || 10;
+// Slug of collection to fetch FP for (default: Tensorians)
+const SLUG =  process.env.SLUG || "05c52d84-2e49-4ed9-a473-b43cab41e777";
+
+// initialize bot with bot token
+const bot = new Telegraf(BOT_TOKEN);
 
 // The following vars are currently global, might make sense to not requery each time a user starts the bot/refreshes
 // so a local DB with periodical refetches or (even better) websocket subscriptions to keep listings up-to-date are 
@@ -62,7 +67,7 @@ bot.launch({
 async function fetchFloorListings(ctx) {
   try {
     // slug: tensorians slug || sortBy: ListingPriceAsc || limit: NUM_OF_LISTINGS ( default 10 ) || onlyListings: True
-    const URL = `https://api.mainnet.tensordev.io/api/v1/mint/collection?slug=05c52d84-2e49-4ed9-a473-b43cab41e777&sortBy=ListingPriceAsc&limit=${NUM_OF_LISTINGS}&onlyListings=true`;
+    const URL = `https://api.mainnet.tensordev.io/api/v1/mint/collection?slug=${SLUG}&sortBy=ListingPriceAsc&limit=${NUM_OF_LISTINGS}&onlyListings=true`;
     const response = await axios.get(
       URL,
       {
