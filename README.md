@@ -46,3 +46,6 @@ SLUG=
 ```
 npx ts-node main.ts
 ```
+
+#### Interact with the bot
+Visit the telegram url with the name specified during BotFather signup
