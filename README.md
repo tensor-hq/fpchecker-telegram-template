@@ -4,7 +4,13 @@
 
 This demo provides a simple foundation for working with the Tensor API, use it to get started building NOW!
 
-![Sample Screenshot](https://github.com/tensor-hq/fpchecker-telegram-template/blob/main/image.png?raw=true)
+
+ Menu View | Single NFT View 
+:-:|:-:
+![Sample Screenshot Menu View](https://github.com/tensor-hq/fpchecker-telegram-template/blob/main/menuView.JPG?raw=true) |![Sample Screenshot Single View](https://github.com/tensor-hq/fpchecker-telegram-template/blob/main/singleView.JPG?raw=true)
+
+
+
 
 ### Prerequisites
 
