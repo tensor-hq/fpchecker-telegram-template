@@ -10,7 +10,7 @@ This demo provides a simple foundation for working with the Tensor API, use it t
 
 - Node v18.18.0 or higher
 - Tensor API Key [Request Page](https://tensor.readme.io/page/tensor-api-form)
-- Telegram API Key [Telegram Bots](https://core.telegram.org/bots)
+- Telegram API Key [Telegram Bots](https://core.telegram.org/bots#how-do-i-create-a-bot)
 
 ### Installation
 
